@@ -3,10 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
 
             @include('includes/showMessage')
-            @foreach ($images as $image)
                 <div class="card pub_image">
                     <div class="card-header">
                         @if (Auth::user()->image)                            
@@ -17,13 +16,11 @@
                         @endif
 
                         <div class="data-user">
-                            <a href="{{ route('image.detail', ['id' => $image->id])}}">
-                                {{$image->user->name.' '.$image->user->surname}}
-                                <span class="nickname">
-                                    {{' | @'.$image->user->nick}}
-                                </span>
-                            </a>
                         </div>
+                        {{$image->user->name.' '.$image->user->surname}}
+                        <span class="nickname">
+                            {{' | @'.$image->user->nick}}
+                        </span>
                     </div>
                     <div class="card-body">
                         @if ($image->image_path)
@@ -46,12 +43,7 @@
                         @endif
                     </div>
                 </div>
-            @endforeach
-            {{-- paginacion --}}
-            <div class="clearfix"></div>
-            <div class="pagination">
-                {{$images->links()}}
-            </div>
+
         </div>
     </div>
 </div>
