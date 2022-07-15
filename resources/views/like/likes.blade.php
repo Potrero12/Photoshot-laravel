@@ -5,15 +5,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            @include('includes.showMessage')
-            @foreach ($images as $image)
-                @include('includes.image', ['image'=>$image])
+            <h1>Mis favoritos</h1>
+            <hr />
+            @foreach ($likes as $like)
+                @include('includes.image', ['image'=>$like->image])
             @endforeach
+
             {{-- paginacion --}}
             <div class="clearfix"></div>
             <div class="pagination">
-                {{$images->links()}}
+                {{$likes->links()}}
             </div>
+
         </div>
     </div>
 </div>

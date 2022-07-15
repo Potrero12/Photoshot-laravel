@@ -14,7 +14,7 @@ class Image extends Model {
 
     // indicar la relacion del modelo one to many
     public function comments() {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany('App\Models\Comment')->orderBy('id', 'desc');
     }
 
     // Relacio One to many

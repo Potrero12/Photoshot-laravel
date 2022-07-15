@@ -48,9 +48,9 @@ class ImageController extends Controller {
         if($image_subir) {
             $image_path_name = time().$image_subir->getClientOriginalName();
             Storage::disk('images')->put($image_path_name, File::get($image_subir));
+            $image->image_path = $image_path_name;
         }
         
-        $image->image_path = $image_path_name;
 
         $image->save();
 

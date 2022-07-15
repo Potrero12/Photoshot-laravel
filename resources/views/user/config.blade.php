@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                @include('includes/showMessage');
+                @include('includes.showMessage')
 
                 <div class="card">
                     <div class="card-header">Configuracion de mi cuenta</div>
@@ -71,13 +71,13 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
+                                <label for="image_path" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
     
                                 <div class="col-md-6">
-                                    @include('includes/avatar')
-                                    <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" autocomplete="image">
+                                    @include('includes.avatar')
+                                    <input id="image_path" type="file" class="form-control @error('image_path') is-invalid @enderror" name="image_path" autocomplete="image_path">
     
-                                    @error('image')
+                                    @error('image_path')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

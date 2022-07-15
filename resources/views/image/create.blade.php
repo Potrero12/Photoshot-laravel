@@ -15,7 +15,7 @@
                             <div class="form-group row">
                                 <label for="image" class="col-md-3 col-form-label text-md-right">Imagen</label>
                                 <div class="col-md-7">
-                                    <input type="file" name="image" id="image" class="form-control" required/>
+                                    <input type="file" name="image" id="image" class="form-control {{$errors->has('image') ? 'is-invalid' : ''}}" required/>
 
                                     @error('image')
                                         <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <div class="form-group row">
                                 <label for="description" class="col-md-3 col-form-label text-md-right">Description</label>
                                 <div class="col-md-7">
-                                    <textarea type="text" name="description" id="description" class="form-control" required></textarea>
+                                    <textarea type="text" name="description" id="description" class="form-control {{$errors->has('description') ? 'is-invalid' : ''}}" required></textarea>
 
                                     @error('description')
                                         <span class="invalid-feedback" role="alert">

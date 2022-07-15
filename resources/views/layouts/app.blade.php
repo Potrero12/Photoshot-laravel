@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" ></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -60,10 +61,13 @@
                                 <a class="nav-link" href="{{route('home')}}">Inicio</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{route('likes')}}">Favoritos</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('image.create') }}">Subir Imagen</a>
                             </li>
                             <li>
-                                @include('includes/avatar')
+                                @include('includes.avatar')
                             </li>
 
                             <li class="nav-item dropdown">
@@ -77,7 +81,7 @@
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('configuracion') }}">
-                                        Confirguración
+                                        Configuracion
                                     </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

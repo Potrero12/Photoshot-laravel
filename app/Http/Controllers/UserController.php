@@ -28,7 +28,8 @@ class UserController extends Controller {
         
         // conseguir al usuario identificado
         $user = Auth::user(); 
-        $id = Auth::user()->id;
+        // $id = Auth::user()->id;
+        $id = $user->id;
         
         // validar el formulario
         $validate = $this->validate($request, [
@@ -52,7 +53,7 @@ class UserController extends Controller {
         $user->email = $email;
         
         // subir la imagen
-        $image_path = $request->file('image');
+        $image_path = $request->file('image_path');
         if($image_path) {
             // ponerle nombre unico a la imagen
             $image_path_name = time().$image_path->getClientOriginalName();
@@ -64,7 +65,6 @@ class UserController extends Controller {
             $user->image = $image_path_name;
         }
         
-
         // actualizar el usuario - visual studio si no lo reconoce pero si funciona
         $user->update();
 
