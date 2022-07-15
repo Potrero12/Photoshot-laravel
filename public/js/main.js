@@ -1,19 +1,18 @@
-const url = 'http://photoshot.com.devel/';
+const url = 'http://photoshot.com.devel';
 window.addEventListener("load", function(){
 	
 	$('.btn-like').css('cursor', 'pointer');
 	$('.btn-dislike').css('cursor', 'pointer');
-
+	
 	// Botón de like
 	function like(){
 		$('.btn-like').unbind('click').click(function(){
 			console.log('like');
 			$(this).addClass('btn-dislike').removeClass('btn-like');
-			$(this).attr('src', url+'img/colorrojo.png');
+			$(this).attr('src', url+'/img/heart-red.png');
 			
 			$.ajax({
-				// para usar el data se debe usar  en el html el data-id="{{$image->id}}"
-				url: url+'like/'+$(this).data('id'),
+				url: url+'/like/'+$(this).data('id'),
 				type: 'GET',
 				success: function(response){
 					if(response.like){
@@ -23,7 +22,7 @@ window.addEventListener("load", function(){
 					}
 				}
 			});
-
+			
 			dislike();
 		});
 	}
@@ -34,10 +33,10 @@ window.addEventListener("load", function(){
 		$('.btn-dislike').unbind('click').click(function(){
 			console.log('dislike');
 			$(this).addClass('btn-like').removeClass('btn-dislike');
-			$(this).attr('src', url+'img/colorgris.png');
+			$(this).attr('src', url+'/img/heart-black.png');
 			
 			$.ajax({
-				url: url+'dislike/'+$(this).data('id'),
+				url: url+'/dislike/'+$(this).data('id'),
 				type: 'GET',
 				success: function(response){
 					if(response.like){
